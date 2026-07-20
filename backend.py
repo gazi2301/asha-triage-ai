@@ -1,10 +1,13 @@
-import streamlit as st
+import json
+import streamlit as st  # 1. Add this import
 from google import genai
-# ... your other imports ...
+from google.genai import types
 
-# Get the key from the Streamlit cloud secrets
+# 2. Get the key from Streamlit Secrets (this pulls from the box you just filled)
 api_key = st.secrets["API_KEY"]
 client = genai.Client(api_key=api_key)
+
+# The rest of your functions (def analyze_patient...) stay exactly the same below this!
 
 def analyze_patient(patient_data):
     system_prompt = """
